@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace GR_Awesome_Midterm
 {
@@ -10,6 +11,7 @@ namespace GR_Awesome_Midterm
     {
         static void Main(string[] args)
         {
+            Library.populateLibrary();
         }
     }
 }

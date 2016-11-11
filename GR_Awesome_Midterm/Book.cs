@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace GR_Awesome_Midterm
 {
-   public class Book
+    public class Book
     {
+        public Book(string Title, string Author, string Status, string dueDate)
+        {
+            this.title = Title;
+            this.author = Author;
+            if (Status.ToLower() == "checkedout")
+            {
+                this.status = (Availability)0;
+            }
+            else
+            {
+                this.status = (Availability)1;
+            }
+            this.returnDate = dueDate;
+        }
         private string title;
 
         public string Title
@@ -46,14 +60,14 @@ namespace GR_Awesome_Midterm
             set { isbn = value; }
         }
 
-        private DateTime returnDate;
+        private string returnDate;
 
-        public DateTime ReturnDate
+        public string ReturnDate
         {
             get { return returnDate; }
             set { returnDate = value; }
         }
 
-
+        
     }
 }
