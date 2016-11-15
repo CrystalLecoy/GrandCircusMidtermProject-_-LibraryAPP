@@ -10,6 +10,9 @@ namespace GR_Awesome_Midterm
     {
         public void Answers()
         {
+            Library.populateLibrary();
+            List<Book> fullLibrary = Library.BookLibrary;
+
             Console.Write("List all books? (y/n)");
             string userAnswer = Console.ReadLine();
             if (userAnswer.ToLower() == "y" || userAnswer.ToLower() == "yes")

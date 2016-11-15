@@ -18,7 +18,7 @@ namespace GR_Awesome_Midterm
                 case SearchType.Author:
                     foreach (Book book in library)
                     {
-                        if (book.Author == searchWord)
+                        if (book.Author.Contains(searchWord))
                         {
                             returnList.Add(book);
                         }

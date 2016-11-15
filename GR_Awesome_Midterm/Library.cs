@@ -8,13 +8,13 @@ using static GR_Awesome_Midterm.Book;
 
 namespace GR_Awesome_Midterm
 {
-    class Library
+    public class Library
     {
-        static List<Book> BookLibrary;
+        public static List<Book> BookLibrary;
 
         public static void populateLibrary()
         {
-            StreamReader SR = new StreamReader(@"C:\Users\Michael\Documents\GitHub\GR_Awesome_Midterm\GR_Awesome_Midterm\bin\Debug\Library.txt");
+            StreamReader SR = new StreamReader("Library.txt");
             string line;
             BookLibrary = new List<Book>();
          
