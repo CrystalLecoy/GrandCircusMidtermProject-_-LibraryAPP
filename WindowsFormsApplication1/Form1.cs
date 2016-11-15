@@ -140,12 +140,91 @@ namespace WindowsFormsApplication1
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
 
+            foreach (ListViewItem item in resultsListView.SelectedItems)
+            {
+                titleTB.Text = item.SubItems[1].Text;
+                string status = item.SubItems[3].Text;
+                statusTB.Text = status;
+                if (status.ToLower() == "available")
+                {
+                    checkButton.Text = "Check Out";
+                }
+                else
+                {
+                    checkButton.Text = "Return";
+                }
+           
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void returnDateTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkButton_Click(object sender, EventArgs e)
+        {
+            List<Book> BookLibrary = Library.BookLibrary;
+            string thisText = this.Text;
+            string UID = resultsListView.SelectedItems[0].SubItems[2].Text;
+            string status = resultsListView.SelectedItems[0].SubItems[3].Text;
+            DateTime Date = DateTime.Today.AddDays(14);
+            string returnDate = Date.ToString("mm/dd/yyyy");
+
+
+            if (thisText=="Return")
+            {
+                checkButton.Text = "Check Out";
+            }
+            else
+            {
+                checkButton.Text = "Return";
+            }
+
+            if (status == "Available")
+            {
+                resultsListView.SelectedItems[0].SubItems[3].Text = "CheckedOut";
+                statusTB.Text = "Checked Out";
+                this.Text = "Return";
+                foreach (Book b  in BookLibrary)
+                {
+                    if (b.UniqueId == UID)
+                    {
+                        b.Status = Book.Availability.CheckedOut;
+                        b.ReturnDate = returnDate;
+                    }
+                }
+            }
+            else
+            {
+                resultsListView.SelectedItems[0].SubItems[3].Text = "Available";
+                statusTB.Text = "Available";
+                this.Text = "Check Out";
+                foreach (Book b in BookLibrary)
+                {
+                    if (b.UniqueId == UID)
+                    {
+                        b.Status = Book.Availability.Available;
+                        b.ReturnDate = "00/00/0000";
+                    }
+                }
+
+            }
+            {
+
+            }
         }
     }
 }

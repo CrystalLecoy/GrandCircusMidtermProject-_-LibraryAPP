@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GR_Awesome_Midterm", "GR_Aw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryInterface", "WindowsFormsApplication1\LibraryInterface.csproj", "{349DDB13-5018-4968-BE52-F5669416F904}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddBookForm", "AddBookForm\AddBookForm.csproj", "{687C7635-3850-45AE-90CC-97CCF4127219}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{349DDB13-5018-4968-BE52-F5669416F904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{349DDB13-5018-4968-BE52-F5669416F904}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{349DDB13-5018-4968-BE52-F5669416F904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{687C7635-3850-45AE-90CC-97CCF4127219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{687C7635-3850-45AE-90CC-97CCF4127219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{687C7635-3850-45AE-90CC-97CCF4127219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{687C7635-3850-45AE-90CC-97CCF4127219}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

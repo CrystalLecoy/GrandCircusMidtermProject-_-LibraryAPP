@@ -37,13 +37,10 @@
             this.authorRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.resultsListView = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.titleTB = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.statusTB = new System.Windows.Forms.TextBox();
             this.returnDateTB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkTB = new System.Windows.Forms.Button();
+            this.checkButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,13 +145,6 @@
             this.resultsListView.UseCompatibleStateImageBehavior = false;
             this.resultsListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
-            // 
             // titleTB
             // 
             this.titleTB.Location = new System.Drawing.Point(12, 251);
@@ -162,13 +152,6 @@
             this.titleTB.Size = new System.Drawing.Size(305, 20);
             this.titleTB.TabIndex = 5;
             this.titleTB.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(0, 0);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
             // 
             // statusTB
             // 
@@ -183,37 +166,27 @@
             this.returnDateTB.Name = "returnDateTB";
             this.returnDateTB.Size = new System.Drawing.Size(100, 20);
             this.returnDateTB.TabIndex = 8;
+            this.returnDateTB.TextChanged += new System.EventHandler(this.returnDateTB_TextChanged);
             // 
-            // button1
+            // checkButton
             // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // checkTB
-            // 
-            this.checkTB.Location = new System.Drawing.Point(217, 364);
-            this.checkTB.Name = "checkTB";
-            this.checkTB.Size = new System.Drawing.Size(100, 23);
-            this.checkTB.TabIndex = 10;
-            this.checkTB.Text = "Check Out";
-            this.checkTB.UseVisualStyleBackColor = true;
+            this.checkButton.Location = new System.Drawing.Point(217, 364);
+            this.checkButton.Name = "checkButton";
+            this.checkButton.Size = new System.Drawing.Size(100, 23);
+            this.checkButton.TabIndex = 10;
+            this.checkButton.Text = "Check Out";
+            this.checkButton.UseVisualStyleBackColor = true;
+            this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 497);
-            this.Controls.Add(this.checkTB);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.checkButton);
             this.Controls.Add(this.returnDateTB);
             this.Controls.Add(this.statusTB);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.titleTB);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.resultsListView);
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
@@ -236,13 +209,10 @@
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.ListView resultsListView;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox titleTB;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox statusTB;
         private System.Windows.Forms.TextBox returnDateTB;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button checkTB;
+        private System.Windows.Forms.Button checkButton;
     }
 }
 
