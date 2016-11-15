@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
     {
         public Form1()
         {
+            Library.populateLibrary();
             InitializeComponent();
         }
 
@@ -47,7 +48,7 @@ namespace WindowsFormsApplication1
         private void displayLibraryButton_Click(object sender, EventArgs e)
         {
 
-            Library.populateLibrary();
+            
             List<Book> AllBooks = Library.BookLibrary;
 
             resultsListView.Columns.Add("Author");
@@ -138,6 +139,11 @@ namespace WindowsFormsApplication1
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

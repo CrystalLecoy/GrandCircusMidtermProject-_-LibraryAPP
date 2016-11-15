@@ -37,6 +37,13 @@
             this.authorRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.resultsListView = new System.Windows.Forms.ListView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.titleTB = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.statusTB = new System.Windows.Forms.TextBox();
+            this.returnDateTB = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkTB = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +56,9 @@
             this.groupBox2.Controls.Add(this.titleRadioButton);
             this.groupBox2.Controls.Add(this.authorRadioButton);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 27);
+            this.groupBox2.Location = new System.Drawing.Point(12, 58);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(305, 136);
+            this.groupBox2.Size = new System.Drawing.Size(305, 160);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
@@ -130,19 +137,83 @@
             // 
             // resultsListView
             // 
+            this.resultsListView.FullRowSelect = true;
+            this.resultsListView.GridLines = true;
+            this.resultsListView.HideSelection = false;
             this.resultsListView.Location = new System.Drawing.Point(343, 65);
             this.resultsListView.MultiSelect = false;
             this.resultsListView.Name = "resultsListView";
-            this.resultsListView.Size = new System.Drawing.Size(720, 271);
+            this.resultsListView.Size = new System.Drawing.Size(720, 396);
             this.resultsListView.TabIndex = 3;
             this.resultsListView.UseCompatibleStateImageBehavior = false;
             this.resultsListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // titleTB
+            // 
+            this.titleTB.Location = new System.Drawing.Point(12, 251);
+            this.titleTB.Name = "titleTB";
+            this.titleTB.Size = new System.Drawing.Size(305, 20);
+            this.titleTB.TabIndex = 5;
+            this.titleTB.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(0, 0);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 6;
+            // 
+            // statusTB
+            // 
+            this.statusTB.Location = new System.Drawing.Point(217, 287);
+            this.statusTB.Name = "statusTB";
+            this.statusTB.Size = new System.Drawing.Size(100, 20);
+            this.statusTB.TabIndex = 7;
+            // 
+            // returnDateTB
+            // 
+            this.returnDateTB.Location = new System.Drawing.Point(217, 326);
+            this.returnDateTB.Name = "returnDateTB";
+            this.returnDateTB.Size = new System.Drawing.Size(100, 20);
+            this.returnDateTB.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // checkTB
+            // 
+            this.checkTB.Location = new System.Drawing.Point(217, 364);
+            this.checkTB.Name = "checkTB";
+            this.checkTB.Size = new System.Drawing.Size(100, 23);
+            this.checkTB.TabIndex = 10;
+            this.checkTB.Text = "Check Out";
+            this.checkTB.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 497);
+            this.Controls.Add(this.checkTB);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.returnDateTB);
+            this.Controls.Add(this.statusTB);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.titleTB);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.resultsListView);
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
@@ -151,6 +222,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -164,6 +236,13 @@
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.ListView resultsListView;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox titleTB;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox statusTB;
+        private System.Windows.Forms.TextBox returnDateTB;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button checkTB;
     }
 }
 
