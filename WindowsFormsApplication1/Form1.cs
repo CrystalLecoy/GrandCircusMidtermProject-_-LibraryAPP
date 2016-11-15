@@ -48,20 +48,21 @@ namespace WindowsFormsApplication1
         private void displayLibraryButton_Click(object sender, EventArgs e)
         {
 
-            
+
             List<Book> AllBooks = Library.BookLibrary;
 
             resultsListView.Columns.Add("Author");
             resultsListView.Columns.Add("Title");
             resultsListView.Columns.Add("ID");
             resultsListView.Columns.Add("Status");
-            foreach (Book c  in AllBooks)
+            foreach (Book c in AllBooks)
             {
-                
+
                 ListViewItem LV = new ListViewItem(c.Author);
                 LV.SubItems.Add(c.Title);
                 LV.SubItems.Add(c.UniqueId);
                 LV.SubItems.Add(c.Status.ToString());
+                LV.SubItems.Add(c.ReturnDate);
                 resultsListView.Items.Add(LV);
                 resultsListView.View = View.Details;
                 resultsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -75,12 +76,14 @@ namespace WindowsFormsApplication1
             resultsListView.Columns.Add("Title");
             resultsListView.Columns.Add("ID");
             resultsListView.Columns.Add("Status");
+            resultsListView.Columns.Add("Return Date");
+
             Library.populateLibrary();
             List<Book> AllBooks = Library.BookLibrary;
 
             if (authorRadioButton.Checked == true)
             {
-                
+
                 foreach (Book b in AllBooks)
                 {
                     string search = searchTextBox.Text;
@@ -90,12 +93,13 @@ namespace WindowsFormsApplication1
                         LV.SubItems.Add(b.Title);
                         LV.SubItems.Add(b.UniqueId);
                         LV.SubItems.Add(b.Status.ToString());
+                        LV.SubItems.Add(b.ReturnDate);
                         resultsListView.Items.Add(LV);
 
                     }
                 }
             }
-            else if(titleRadioButton.Checked == true)
+            else if (titleRadioButton.Checked == true)
             {
                 foreach (Book b in AllBooks)
                 {
@@ -106,15 +110,16 @@ namespace WindowsFormsApplication1
                         LV.SubItems.Add(b.Title);
                         LV.SubItems.Add(b.UniqueId);
                         LV.SubItems.Add(b.Status.ToString());
+                        LV.SubItems.Add(b.ReturnDate);
                         resultsListView.Items.Add(LV);
-                      
+
                     }
                 }
 
             }
             else
             {
-                
+
                 foreach (Book b in AllBooks)
                 {
                     string search = searchTextBox.Text;
@@ -124,8 +129,9 @@ namespace WindowsFormsApplication1
                         LV.SubItems.Add(b.Title);
                         LV.SubItems.Add(b.UniqueId);
                         LV.SubItems.Add(b.Status.ToString());
+                        LV.SubItems.Add(b.ReturnDate);
                         resultsListView.Items.Add(LV);
-                        
+
                     }
                 }
             }
@@ -140,7 +146,7 @@ namespace WindowsFormsApplication1
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
             foreach (ListViewItem item in resultsListView.SelectedItems)
             {
@@ -155,7 +161,7 @@ namespace WindowsFormsApplication1
                 {
                     checkButton.Text = "Return";
                 }
-           
+
             }
         }
 
@@ -176,6 +182,7 @@ namespace WindowsFormsApplication1
 
         private void checkButton_Click(object sender, EventArgs e)
         {
+
             List<Book> BookLibrary = Library.BookLibrary;
             string thisText = this.Text;
             string UID = resultsListView.SelectedItems[0].SubItems[2].Text;
@@ -184,7 +191,7 @@ namespace WindowsFormsApplication1
             string returnDate = Date.ToString("mm/dd/yyyy");
 
 
-            if (thisText=="Return")
+            if (thisText == "Return")
             {
                 checkButton.Text = "Check Out";
             }
@@ -198,7 +205,7 @@ namespace WindowsFormsApplication1
                 resultsListView.SelectedItems[0].SubItems[3].Text = "CheckedOut";
                 statusTB.Text = "Checked Out";
                 this.Text = "Return";
-                foreach (Book b  in BookLibrary)
+                foreach (Book b in BookLibrary)
                 {
                     if (b.UniqueId == UID)
                     {
@@ -222,9 +229,7 @@ namespace WindowsFormsApplication1
                 }
 
             }
-            {
-
-            }
+            Library.writeToLibrary();
         }
     }
 }
