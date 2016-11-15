@@ -21,7 +21,7 @@ namespace GR_Awesome_Midterm
             while ((line = SR.ReadLine()) != null)
             {
                 string[] lines = line.Split(';');
-                Book e = new Book(lines[0], lines[1], lines[2], lines[3]);
+                Book e = new Book(lines[0], lines[1], lines[2], lines[3],lines[4]);
                 BookLibrary.Add(e);
             }
             

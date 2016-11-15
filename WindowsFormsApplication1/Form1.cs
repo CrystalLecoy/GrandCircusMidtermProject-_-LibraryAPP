@@ -49,20 +49,35 @@ namespace WindowsFormsApplication1
 
             Library.populateLibrary();
             List<Book> AllBooks = Library.BookLibrary;
-            foreach (Book b in AllBooks)
+
+            resultsListView.Columns.Add("Author");
+            resultsListView.Columns.Add("Title");
+            resultsListView.Columns.Add("ID");
+            resultsListView.Columns.Add("Status");
+            foreach (Book c  in AllBooks)
             {
-                string titleAuth = b.Author + "\t\t" + b.Title;
-                listBox1.Items.Add(titleAuth);
+                
+                ListViewItem LV = new ListViewItem(c.Author);
+                LV.SubItems.Add(c.Title);
+                LV.SubItems.Add(c.UniqueId);
+                LV.SubItems.Add(c.Status.ToString());
+                resultsListView.Items.Add(LV);
+                resultsListView.View = View.Details;
+                resultsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            resultsListView.Clear();
+            resultsListView.Columns.Add("Author");
+            resultsListView.Columns.Add("Title");
+            resultsListView.Columns.Add("ID");
+            resultsListView.Columns.Add("Status");
             Library.populateLibrary();
             List<Book> AllBooks = Library.BookLibrary;
 
-            if (authorRadioButton.Checked = true)
+            if (authorRadioButton.Checked == true)
             {
                 
                 foreach (Book b in AllBooks)
@@ -70,20 +85,28 @@ namespace WindowsFormsApplication1
                     string search = searchTextBox.Text;
                     if (b.Author.ToLower().Contains(search.ToLower()))
                     {
-                        string titleAuth = b.Author + "\t\t" + b.Title;
-                        listBox1.Items.Add(titleAuth);
+                        ListViewItem LV = new ListViewItem(b.Author);
+                        LV.SubItems.Add(b.Title);
+                        LV.SubItems.Add(b.UniqueId);
+                        LV.SubItems.Add(b.Status.ToString());
+                        resultsListView.Items.Add(LV);
+
                     }
                 }
             }
-            else if(titleRadioButton.Checked = true)
+            else if(titleRadioButton.Checked == true)
             {
                 foreach (Book b in AllBooks)
                 {
                     string search = searchTextBox.Text;
                     if (b.Title.ToLower() == search.ToLower())
                     {
-                        string titleAuth = b.Author + "\t\t" + b.Title;
-                        listBox1.Items.Add(titleAuth);
+                        ListViewItem LV = new ListViewItem(b.Author);
+                        LV.SubItems.Add(b.Title);
+                        LV.SubItems.Add(b.UniqueId);
+                        LV.SubItems.Add(b.Status.ToString());
+                        resultsListView.Items.Add(LV);
+                      
                     }
                 }
 
@@ -96,14 +119,25 @@ namespace WindowsFormsApplication1
                     string search = searchTextBox.Text;
                     if (b.Title.ToLower().Contains(search.ToLower()))
                     {
-                        string titleAuth = b.Author + "\t\t" + b.Title;
-                        listBox1.Items.Add(titleAuth);
+                        ListViewItem LV = new ListViewItem(b.Author);
+                        LV.SubItems.Add(b.Title);
+                        LV.SubItems.Add(b.UniqueId);
+                        LV.SubItems.Add(b.Status.ToString());
+                        resultsListView.Items.Add(LV);
+                        
                     }
                 }
             }
+            resultsListView.View = View.Details;
+            resultsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

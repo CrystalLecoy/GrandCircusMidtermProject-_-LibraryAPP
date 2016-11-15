@@ -8,10 +8,12 @@ namespace GR_Awesome_Midterm
 {
     public class Book
     {
-        public Book(string Title, string Author, string Status, string dueDate)
+        public Book(string Title, string Author, string Status, string dueDate, string uniqueId)
         {
             this.title = Title;
             this.author = Author;
+            this.uniqueId = uniqueId;
+
             if (Status.ToLower() == "checkedout")
             {
                 this.status = (Availability)0;
@@ -52,12 +54,12 @@ namespace GR_Awesome_Midterm
             Available
         }
 
-        private string isbn;
+        private string uniqueId;
 
-        public string ISBN
+        public string UniqueId
         {
-            get { return isbn; }
-            set { isbn = value; }
+            get { return uniqueId; }
+            set { uniqueId = value; }
         }
 
         private string returnDate;
