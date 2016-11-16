@@ -39,7 +39,6 @@
             this.resultsListView = new System.Windows.Forms.ListView();
             this.titleTB = new System.Windows.Forms.TextBox();
             this.statusTB = new System.Windows.Forms.TextBox();
-            this.returnDateTB = new System.Windows.Forms.TextBox();
             this.checkButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -160,17 +159,9 @@
             this.statusTB.Size = new System.Drawing.Size(100, 20);
             this.statusTB.TabIndex = 7;
             // 
-            // returnDateTB
-            // 
-            this.returnDateTB.Location = new System.Drawing.Point(217, 326);
-            this.returnDateTB.Name = "returnDateTB";
-            this.returnDateTB.Size = new System.Drawing.Size(100, 20);
-            this.returnDateTB.TabIndex = 8;
-            this.returnDateTB.TextChanged += new System.EventHandler(this.returnDateTB_TextChanged);
-            // 
             // checkButton
             // 
-            this.checkButton.Location = new System.Drawing.Point(217, 364);
+            this.checkButton.Location = new System.Drawing.Point(217, 325);
             this.checkButton.Name = "checkButton";
             this.checkButton.Size = new System.Drawing.Size(100, 23);
             this.checkButton.TabIndex = 10;
@@ -185,7 +176,6 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1175, 497);
             this.Controls.Add(this.checkButton);
-            this.Controls.Add(this.returnDateTB);
             this.Controls.Add(this.statusTB);
             this.Controls.Add(this.titleTB);
             this.Controls.Add(this.resultsListView);
@@ -212,7 +202,6 @@
         private System.Windows.Forms.ListView resultsListView;
         private System.Windows.Forms.TextBox titleTB;
         private System.Windows.Forms.TextBox statusTB;
-        private System.Windows.Forms.TextBox returnDateTB;
         private System.Windows.Forms.Button checkButton;
     }
 }

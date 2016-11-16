@@ -207,6 +207,7 @@ namespace WindowsFormsApplication1
                 statusTB.Text = "Checked Out";
                 this.Text = "Return";
                 checkButton.Text = "Return";
+                MessageBox.Show("Due Back On " + returnDate);
                 foreach (Book b in BookLibrary)
                 {
                     if (b.UniqueId == UID)
