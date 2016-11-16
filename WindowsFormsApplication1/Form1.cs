@@ -20,32 +20,9 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             checkButton.Visible = false;
         }
+        
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void displayLibraryButton_Click(object sender, EventArgs e)
         {
 
@@ -198,7 +175,7 @@ namespace WindowsFormsApplication1
             string returnDate = Date.ToString("MM/dd/yyyy");
 
 
-           
+           //todo display "no results found" message
 
             if (status == "Available")
             {
@@ -232,9 +209,22 @@ namespace WindowsFormsApplication1
                         b.ReturnDate = "00/00/0000";
                     }
                 }
-
             }
             Library.writeToLibrary();
+        }
+
+        private void buttonAddBook_Click(object sender, EventArgs e)
+        {
+            Book b = Library.AddBookToLibrary(textBoxAddTitle.Text, textBoxAddAuthor.Text);
+            MessageBox.Show("Your book was successfully added!");
+            textBoxAddTitle.Text = "";
+            textBoxAddAuthor.Text = "";
+            ListViewItem LV = new ListViewItem(b.Author);
+            LV.SubItems.Add(b.Title);
+            LV.SubItems.Add(b.UniqueId);
+            LV.SubItems.Add(b.Status.ToString());
+            LV.SubItems.Add(b.ReturnDate);
+            resultsListView.Items.Add(LV);
         }
     }
 }

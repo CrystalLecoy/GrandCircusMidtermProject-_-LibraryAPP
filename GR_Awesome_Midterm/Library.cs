@@ -10,6 +10,23 @@ namespace GR_Awesome_Midterm
 {
     public class Library
     {
+        public static Book AddBookToLibrary(string title, string author)
+        {
+            string Status = Availability.Available.ToString();
+            string dueDate = "00/00/0000";
+            
+            var lastBook = BookLibrary.OrderByDescending(b => b.UniqueId).First();
+
+            string uniqueId = lastBook.UniqueId;
+            int newIDNumber = int.Parse(uniqueId);
+            newIDNumber++;
+
+            Book newBook = new Book(title, author, Status, dueDate, newIDNumber.ToString("000000"));
+            BookLibrary.Add(newBook);
+            writeToLibrary();
+            return newBook;
+        }
+        
         public static List<Book> BookLibrary;
         public static void writeToLibrary()
         {
