@@ -140,7 +140,7 @@
             this.resultsListView.Location = new System.Drawing.Point(343, 65);
             this.resultsListView.MultiSelect = false;
             this.resultsListView.Name = "resultsListView";
-            this.resultsListView.Size = new System.Drawing.Size(720, 396);
+            this.resultsListView.Size = new System.Drawing.Size(820, 396);
             this.resultsListView.TabIndex = 3;
             this.resultsListView.UseCompatibleStateImageBehavior = false;
             this.resultsListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -182,7 +182,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1075, 497);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1175, 497);
             this.Controls.Add(this.checkButton);
             this.Controls.Add(this.returnDateTB);
             this.Controls.Add(this.statusTB);

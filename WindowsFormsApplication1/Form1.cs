@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         {
             Library.populateLibrary();
             InitializeComponent();
+            checkButton.Visible = false;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -50,6 +51,8 @@ namespace WindowsFormsApplication1
 
 
             List<Book> AllBooks = Library.BookLibrary;
+            checkButton.Visible = true;
+
 
             resultsListView.Columns.Add("Author");
             resultsListView.Columns.Add("Title");
@@ -67,6 +70,8 @@ namespace WindowsFormsApplication1
                 resultsListView.View = View.Details;
                 resultsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
+
+            resultsListView.Items[0].Selected = true;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -78,6 +83,7 @@ namespace WindowsFormsApplication1
             resultsListView.Columns.Add("Status");
             resultsListView.Columns.Add("Return Date");
 
+            checkButton.Visible = true;
             Library.populateLibrary();
             List<Book> AllBooks = Library.BookLibrary;
 
@@ -137,6 +143,7 @@ namespace WindowsFormsApplication1
             }
             resultsListView.View = View.Details;
             resultsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            resultsListView.Items[0].Selected = true;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,23 +195,18 @@ namespace WindowsFormsApplication1
             string UID = resultsListView.SelectedItems[0].SubItems[2].Text;
             string status = resultsListView.SelectedItems[0].SubItems[3].Text;
             DateTime Date = DateTime.Today.AddDays(14);
-            string returnDate = Date.ToString("mm/dd/yyyy");
+            string returnDate = Date.ToString("MM/dd/yyyy");
 
 
-            if (thisText == "Return")
-            {
-                checkButton.Text = "Check Out";
-            }
-            else
-            {
-                checkButton.Text = "Return";
-            }
+           
 
             if (status == "Available")
             {
                 resultsListView.SelectedItems[0].SubItems[3].Text = "CheckedOut";
+                resultsListView.SelectedItems[0].SubItems[4].Text = returnDate;
                 statusTB.Text = "Checked Out";
                 this.Text = "Return";
+                checkButton.Text = "Return";
                 foreach (Book b in BookLibrary)
                 {
                     if (b.UniqueId == UID)
@@ -217,8 +219,10 @@ namespace WindowsFormsApplication1
             else
             {
                 resultsListView.SelectedItems[0].SubItems[3].Text = "Available";
+                resultsListView.SelectedItems[0].SubItems[4].Text = "00/00/0000";
                 statusTB.Text = "Available";
                 this.Text = "Check Out";
+                checkButton.Text = "Check Out";
                 foreach (Book b in BookLibrary)
                 {
                     if (b.UniqueId == UID)
