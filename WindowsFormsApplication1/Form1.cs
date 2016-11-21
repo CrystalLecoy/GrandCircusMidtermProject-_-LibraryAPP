@@ -99,7 +99,10 @@ namespace WindowsFormsApplication1
             }
             resultsListView.View = View.Details;
             resultsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            resultsListView.Items[0].Selected = true;
+            if (resultsListView.Items.Count > 0)
+            {
+                resultsListView.Items[0].Selected = true;
+            }
         }
 
 
