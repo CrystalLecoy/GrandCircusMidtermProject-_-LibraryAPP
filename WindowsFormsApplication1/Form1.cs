@@ -20,9 +20,9 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             checkButton.Visible = false;
         }
-        
 
-        
+
+
         private void displayLibraryButton_Click(object sender, EventArgs e)
         {
 
@@ -38,12 +38,7 @@ namespace WindowsFormsApplication1
             foreach (Book c in AllBooks)
             {
 
-                ListViewItem LV = new ListViewItem(c.Author);
-                LV.SubItems.Add(c.Title);
-                LV.SubItems.Add(c.UniqueId);
-                LV.SubItems.Add(c.Status.ToString());
-                LV.SubItems.Add(c.ReturnDate);
-                resultsListView.Items.Add(LV);
+                AddBookToDisplay(c);
                 resultsListView.View = View.Details;
                 resultsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
@@ -72,12 +67,7 @@ namespace WindowsFormsApplication1
                     string search = searchTextBox.Text;
                     if (b.Author.ToLower().Contains(search.ToLower()))
                     {
-                        ListViewItem LV = new ListViewItem(b.Author);
-                        LV.SubItems.Add(b.Title);
-                        LV.SubItems.Add(b.UniqueId);
-                        LV.SubItems.Add(b.Status.ToString());
-                        LV.SubItems.Add(b.ReturnDate);
-                        resultsListView.Items.Add(LV);
+                        AddBookToDisplay(b);
 
                     }
                 }
@@ -89,12 +79,7 @@ namespace WindowsFormsApplication1
                     string search = searchTextBox.Text;
                     if (b.Title.ToLower() == search.ToLower())
                     {
-                        ListViewItem LV = new ListViewItem(b.Author);
-                        LV.SubItems.Add(b.Title);
-                        LV.SubItems.Add(b.UniqueId);
-                        LV.SubItems.Add(b.Status.ToString());
-                        LV.SubItems.Add(b.ReturnDate);
-                        resultsListView.Items.Add(LV);
+                        AddBookToDisplay(b);
 
                     }
                 }
@@ -108,13 +93,7 @@ namespace WindowsFormsApplication1
                     string search = searchTextBox.Text;
                     if (b.Title.ToLower().Contains(search.ToLower()))
                     {
-                        ListViewItem LV = new ListViewItem(b.Author);
-                        LV.SubItems.Add(b.Title);
-                        LV.SubItems.Add(b.UniqueId);
-                        LV.SubItems.Add(b.Status.ToString());
-                        LV.SubItems.Add(b.ReturnDate);
-                        resultsListView.Items.Add(LV);
-
+                        AddBookToDisplay(b);
                     }
                 }
             }
@@ -123,10 +102,7 @@ namespace WindowsFormsApplication1
             resultsListView.Items[0].Selected = true;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,20 +125,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void returnDateTB_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void checkButton_Click(object sender, EventArgs e)
         {
@@ -175,7 +137,7 @@ namespace WindowsFormsApplication1
             string returnDate = Date.ToString("MM/dd/yyyy");
 
 
-           //todo display "no results found" message
+            //todo display "no results found" message
 
             if (status == "Available")
             {
@@ -213,18 +175,17 @@ namespace WindowsFormsApplication1
             Library.writeToLibrary();
         }
 
-        private void buttonAddBook_Click(object sender, EventArgs e)
+        public void AddBookToDisplay(Book b)
         {
-            Book b = Library.AddBookToLibrary(textBoxAddTitle.Text, textBoxAddAuthor.Text);
-            MessageBox.Show("Your book was successfully added!");
-            textBoxAddTitle.Text = "";
-            textBoxAddAuthor.Text = "";
             ListViewItem LV = new ListViewItem(b.Author);
+
             LV.SubItems.Add(b.Title);
             LV.SubItems.Add(b.UniqueId);
             LV.SubItems.Add(b.Status.ToString());
             LV.SubItems.Add(b.ReturnDate);
             resultsListView.Items.Add(LV);
         }
+
+
     }
 }
